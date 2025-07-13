@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
 
 interface Product {
   id: number;
@@ -199,7 +201,7 @@ export default function Store() {
                 className="h-64 overflow-hidden cursor-pointer"
                 onClick={() => openQuickView(product)}
               >
-                <img 
+                <Image
                   src={product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -257,7 +259,7 @@ export default function Store() {
               
               <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="aspect-square overflow-hidden rounded-xl">
-                  <img 
+                  <Image
                     src={quickViewProduct.image} 
                     alt={quickViewProduct.name} 
                     className="w-full h-full object-cover"

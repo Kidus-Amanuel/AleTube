@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
+
 
 export default function Blog() {
   // State for active category
@@ -160,7 +162,7 @@ export default function Blog() {
                   className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="h-48 overflow-hidden">
-                    <img 
+                    <Image 
                       src={post.image} 
                       alt={post.title} 
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -239,7 +241,7 @@ export default function Blog() {
                 {popularPosts.map(post => (
                   <div key={post.id} className="flex items-start group cursor-pointer">
                     <div className="w-16 h-16 flex-shrink-0 overflow-hidden rounded-md">
-                      <img 
+                      <Image
                         src={post.image} 
                         alt={post.title} 
                         className="w-full h-full object-cover"

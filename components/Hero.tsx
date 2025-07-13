@@ -1,23 +1,20 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, Variants } from 'framer-motion';
 
 const heroImages = [
   'https://img.youtube.com/vi/PGZtApUov5s/sddefault.jpg',
-  
   'https://img.youtube.com/vi/oez1TAzhXQo/sddefault.jpg',
   'https://img.youtube.com/vi/nOSnJ8gd_HI/sddefault.jpg',
   'https://img.youtube.com/vi/AmN1eiKoMgo/sddefault.jpg',
 ];
 
-
-
 const heroHeadlines = [
   "Reacting to the Hottest Videos Online",
   "Unfiltered Reactions to Viral Content",
   "Join the Reaction Revolution",
-  "Reacting to the Hottest Videos Online", // Added a 4th headline to match images length
+  "Reacting to the Hottest Videos Online",
 ];
 
 const textVariants: Variants = {
@@ -59,22 +56,15 @@ const carouselVariants: Variants = {
 };
 
 export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [direction, setDirection] = useState<number>(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
 
-  const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
-    setCurrentIndex(index);
-    resetTimer();
-  };
-
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex === heroImages.length - 1 ? 0 : prevIndex + 1));
-    resetTimer();
-  };
+  }, []);
 
   const prevSlide = () => {
     setDirection(-1);
@@ -82,7 +72,13 @@ export default function HeroSection() {
     resetTimer();
   };
 
-  const resetTimer = () => {
+  const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
+    resetTimer();
+  };
+
+  const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
     if (progressRef.current) progressRef.current.style.width = '0%';
 
@@ -98,17 +94,17 @@ export default function HeroSection() {
         }
       }, 10);
     }
-  };
+  }, [nextSlide]);
 
   useEffect(() => {
     resetTimer();
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, []);
+  }, [resetTimer]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden py-20  mt-20">
+    <div className="relative w-full h-screen overflow-hidden py-20 mt-20">
       <div className="absolute inset-0">
         {heroImages.map((img, index) => (
           <motion.div
@@ -154,17 +150,11 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
-              variants={itemVariants}
-            >
+            <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" variants={itemVariants}>
               {heroHeadlines[currentIndex]}
             </motion.h1>
 
-            <motion.p
-              className="text-xl md:text-2xl text-[#E5E7EB] mb-10 max-w-2xl mx-auto leading-relaxed font-light"
-              variants={itemVariants}
-            >
+            <motion.p className="text-xl md:text-2xl text-[#E5E7EB] mb-10 max-w-2xl mx-auto leading-relaxed font-light" variants={itemVariants}>
               Authentic reactions to the latest viral videos, music, and internet sensations. Join the community of over 150k subscribers!
             </motion.p>
           </motion.div>
@@ -195,14 +185,7 @@ export default function HeroSection() {
         className="absolute left-6 top-1/2 transform -translate-y-1/2 p-3 sm:p-4 rounded-full bg-[#111827]/80 hover:bg-[#111827] text-white z-20 transition-all group shadow-xl"
         aria-label="Previous slide"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 group-hover:scale-110 transition-transform"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -212,14 +195,7 @@ export default function HeroSection() {
         className="absolute right-6 top-1/2 transform -translate-y-1/2 p-3 sm:p-4 rounded-full bg-[#111827]/80 hover:bg-[#111827] text-white z-20 transition-all group shadow-xl"
         aria-label="Next slide"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 group-hover:scale-110 transition-transform"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>

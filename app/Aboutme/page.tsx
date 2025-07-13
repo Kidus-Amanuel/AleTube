@@ -4,23 +4,7 @@ export default function Aboutme() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-6 md:p-12 font-[family-name:var(--font-geist-sans)]">
       <div className="max-w-6xl mx-auto">
-        {/* Header with navigation */}
-        <header className="flex justify-between items-center mb-16">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-red-600 rounded-full"></div>
-            <h1 className="ml-3 text-2xl font-bold">ALE TUBE</h1>
-          </div>
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              <li className="hover:text-amber-400 transition-colors cursor-pointer">Home</li>
-              <li className="text-amber-400 font-medium">About</li>
-              <li className="hover:text-amber-400 transition-colors cursor-pointer">Videos</li>
-              <li className="hover:text-amber-400 transition-colors cursor-pointer">Merch</li>
-              <li className="hover:text-amber-400 transition-colors cursor-pointer">Contact</li>
-            </ul>
-          </nav>
-          <button className="md:hidden text-2xl">☰</button>
-        </header>
+
 
         {/* Main content */}
         <main className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -39,17 +23,17 @@ export default function Aboutme() {
                   </div>
                   <div className="ml-6">
                     <h1 className="text-4xl md:text-5xl font-bold">Ale Tube</h1>
-                    <p className="text-amber-400 mt-1">Content Creator & Entertainer</p>
+                    <p className="text-amber-400 mt-1">Content Creator &amp; Entertainer</p>
                   </div>
                 </div>
 
                 <p className="text-lg text-gray-300 leading-relaxed">
-                  Hey there! I'm Ale, a passionate content creator who loves sharing my adventures, thoughts, 
+                  Hey there! I&apos;m Ale, a passionate content creator who loves sharing my adventures, thoughts, 
                   and creative projects with the world. What started as a fun hobby has grown into a vibrant 
                   community of amazing people who inspire me every day.
                 </p>
                 <p className="text-lg text-gray-300 mt-4 leading-relaxed">
-                  On my channel, you'll find a mix of lifestyle vlogs, creative challenges, travel diaries, 
+                  On my channel, you&apos;ll find a mix of lifestyle vlogs, creative challenges, travel diaries, 
                   and heartfelt conversations. I believe in authenticity, positivity, and making the internet 
                   a more joyful place.
                 </p>
@@ -79,7 +63,7 @@ export default function Aboutme() {
               <h2 className="text-2xl font-bold mb-6">My Content</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl aspect-video flex items-center justify-center">
-                  <span className="text-amber-400 font-medium">Vlogs & Diaries</span>
+                  <span className="text-amber-400 font-medium">Vlogs &amp; Diaries</span>
                 </div>
                 <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl aspect-video flex items-center justify-center">
                   <span className="text-amber-400 font-medium">Challenges</span>
@@ -88,7 +72,7 @@ export default function Aboutme() {
                   <span className="text-amber-400 font-medium">Travel</span>
                 </div>
                 <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl aspect-video flex items-center justify-center">
-                  <span className="text-amber-400 font-medium">Q&A</span>
+                  <span className="text-amber-400 font-medium">Q&amp;A</span>
                 </div>
               </div>
             </div>
@@ -128,15 +112,6 @@ export default function Aboutme() {
         </main>
 
         {/* Quote section */}
-        <div className="max-w-3xl mx-auto mt-24 mb-16 text-center">
-          <div className="text-6xl text-amber-400 mb-4">"</div>
-          <p className="text-2xl italic">
-            Creating content isn't just about views and numbers - it's about connection, 
-            creativity, and sharing moments that matter.
-          </p>
-          <p className="mt-6 text-amber-400 font-medium">- Ale Tube</p>
-        </div>
-
         
       </div>
     </div>

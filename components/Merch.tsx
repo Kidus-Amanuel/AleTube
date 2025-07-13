@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { ShoppingCart, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import Image from 'next/image';
 
 interface MerchItem {
   image: string;
@@ -186,7 +187,7 @@ export default function Merch() {
                       className="bg-gray-800 rounded-xl shadow-xl w-full overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group"
                     >
                       <div className="relative overflow-hidden">
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.title}
                           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"

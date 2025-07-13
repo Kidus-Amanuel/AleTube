@@ -55,10 +55,11 @@ export default function LatestVideo() {
           spaceBetween={30}
           loop={true}
           onInit={(swiper) => {
-            // @ts-ignore
-            swiper.params.navigation.prevEl = prevRef.current;
-            // @ts-ignore
-            swiper.params.navigation.nextEl = nextRef.current;
+            // @ts-expect-error: Swiper types don't recognize dynamic nav refs correctly
+swiper.params.navigation.prevEl = prevRef.current;
+// @ts-expect-error: Swiper types don't recognize dynamic nav refs correctly
+swiper.params.navigation.nextEl = nextRef.current;
+
             swiper.navigation.init();
             swiper.navigation.update();
           }}
