@@ -4,8 +4,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Ale tube",
-  description: "Ale Tube ",
+  title: "Ale Tube",
+  description: "Ale Tube",
 };
 
 export default function RootLayout({
@@ -15,12 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Nav/>
-      <body
-      >
+      <body>
+        <Nav />
         {children}
+        <Footer />
       </body>
-      <Footer/>
     </html>
   );
 }

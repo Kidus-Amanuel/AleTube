@@ -165,6 +165,8 @@ export default function Blog() {
                     <Image 
                       src={post.image} 
                       alt={post.title} 
+                      width={800}
+                      height={500}
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
@@ -245,6 +247,8 @@ export default function Blog() {
                         src={post.image} 
                         alt={post.title} 
                         className="w-full h-full object-cover"
+                        width={800}
+                        height={500}
                       />
                     </div>
                     <div className="ml-4">

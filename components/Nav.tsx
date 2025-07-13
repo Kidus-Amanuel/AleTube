@@ -95,6 +95,8 @@ export default function Nav() {
                   src="https://yt3.googleusercontent.com/I2mcCfvHKcgzdc55WhcIwRUZm2Y_ZkjxzngUFJNCg3WO2ESM7z7vZZGOlAdhJg2uqnuu7WPHWw=s120-c-k-c0x00ffffff-no-rj"
                   className="header__logo-image h-16 w-16 rounded-full"
                   alt="Ale Tube Logo"
+                  width={1200}
+                  height={500}
                 />
               </Link>
             </h1>

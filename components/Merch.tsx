@@ -86,6 +86,78 @@ export default function Merch() {
       category: "Home",
       rating: 5.0,
       reviewCount: 41
+    },
+     {
+      image: "https://i.pinimg.com/1200x/d2/83/70/d28370addd76af26ef5a011baeb36b4a.jpg",
+      title: "Retro Hoodie",
+      price: "$45.00",
+      description: "Cozy and cool, limited edition.",
+      category: "Clothing",
+      rating: 4.8,
+      reviewCount: 142
+    },
+    {
+      image: "https://i.pinimg.com/1200x/83/8c/87/838c87e26aedbdfd28fdcf108b238138.jpg",
+      title: "Street Cap",
+      price: "$20.00",
+      description: "Classic fit, perfect shade.",
+      category: "Accessories",
+      rating: 4.5,
+      reviewCount: 89
+    },
+    {
+      image: "https://i.pinimg.com/1200x/d7/28/c7/d728c75f898f0e8682a5791f9a16aa4d.jpg",
+      title: "Graphic Tee",
+      price: "$28.00",
+      description: "100% cotton with custom art.",
+      category: "Clothing",
+      rating: 4.7,
+      reviewCount: 203
+    },
+    {
+      image: "https://i.pinimg.com/1200x/83/0d/c5/830dc57e6faf248cc41f656796fa93a0.jpg",
+      title: "Signature Mug",
+      price: "$18.00",
+      description: "Start your day in style",
+      category: "Home",
+      rating: 4.9,
+      reviewCount: 56
+    },
+    {
+      image: "https://i.pinimg.com/736x/97/16/db/9716dbd52cd3a3744db7bb256502d055.jpg",
+      title: "Bucket Hat",
+      price: "$18.00",
+      description: "Sun-ready & stylish.",
+      category: "Accessories",
+      rating: 4.6,
+      reviewCount: 72
+    },
+    {
+      image: "https://i.pinimg.com/736x/6f/bb/a1/6fbba15a0aef51619e51d1536af91518.jpg",
+      title: "Canvas Tote",
+      price: "$15.00",
+      description: "Sustainable & spacious.",
+      category: "Accessories",
+      rating: 4.4,
+      reviewCount: 118
+    },
+    {
+      image: "https://i.pinimg.com/1200x/a4/4b/8d/a44b8d5a00e4325a8cc9edfce6419d35.jpg",
+      title: "Phone Case",
+      price: "$22.00",
+      description: "Durable protection with style",
+      category: "Accessories",
+      rating: 4.7,
+      reviewCount: 94
+    },
+    {
+      image: "https://i.pinimg.com/1200x/14/b1/a4/14b1a438bfc6173f702b99dffd9db17c.jpg",
+      title: "Signed Poster",
+      price: "$35.00",
+      description: "Limited edition artwork",
+      category: "Home",
+      rating: 5.0,
+      reviewCount: 41
     }
   ];
 
@@ -190,6 +262,8 @@ export default function Merch() {
                         <Image
                           src={item.image}
                           alt={item.title}
+                          width={45}
+                          height={64}
                           className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         {item.category && (

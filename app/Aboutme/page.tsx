@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Aboutme() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-6 md:p-12 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-6 md:p-12 font-[family-name:var(--font-geist-sans)] mt-16">
       <div className="max-w-6xl mx-auto">
 
 

@@ -205,6 +205,8 @@ export default function Store() {
                   src={product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  width={800}
+height={500}
                 />
               </div>
               <div className="p-6">
