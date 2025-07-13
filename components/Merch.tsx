@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, ChevronLeft, ChevronRight } from 'lucide-react';
-
 import Image from 'next/image';
 
 interface MerchItem {
@@ -72,7 +71,25 @@ export default function Merch() {
     },
   ];
 
-  const itemsPerSlide = 3;
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
+
+  useEffect(() => {
+    const updateItemsPerSlide = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerSlide(1); // small screens
+      } else if (window.innerWidth < 1024) {
+        setItemsPerSlide(2); // medium screens
+      } else {
+        setItemsPerSlide(3); // large screens
+      }
+    };
+
+    updateItemsPerSlide(); // initial check
+
+    window.addEventListener('resize', updateItemsPerSlide);
+    return () => window.removeEventListener('resize', updateItemsPerSlide);
+  }, []);
+
   const totalSlides = Math.ceil(merchItems.length / itemsPerSlide);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -80,12 +97,12 @@ export default function Merch() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const goToPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+    setCurrentIndex(prev => (prev === 0 ? totalSlides - 1 : prev - 1));
     setIsAutoPlaying(false);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+    setCurrentIndex(prev => (prev === totalSlides - 1 ? 0 : prev + 1));
     setIsAutoPlaying(false);
   };
 
@@ -97,7 +114,7 @@ export default function Merch() {
   useEffect(() => {
     if (!isAutoPlaying || isHovered) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
+      setCurrentIndex(prev => (prev === totalSlides - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, isHovered, totalSlides]);
@@ -105,8 +122,12 @@ export default function Merch() {
   return (
     <div className="py-16 px-4 bg-black text-white">
       <div className="max-w-7xl mx-auto text-center mb-10">
-        <h2 className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Featured Merch</h2>
-        <p className="text-gray-400">Support the channel by grabbing some exclusive gear!</p>
+        <h2 className="text-4xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
+          Featured Merch
+        </h2>
+        <p className="text-gray-400">
+          Support the channel by grabbing some exclusive gear!
+        </p>
       </div>
 
       <div
@@ -168,10 +189,16 @@ export default function Merch() {
         </div>
 
         {/* Arrows */}
-        <button onClick={goToPrev} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 p-3 rounded-full">
+        <button
+          onClick={goToPrev}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 p-3 rounded-full"
+        >
           <ChevronLeft size={24} className="text-white" />
         </button>
-        <button onClick={goToNext} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 p-3 rounded-full">
+        <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/60 p-3 rounded-full"
+        >
           <ChevronRight size={24} className="text-white" />
         </button>
 

@@ -44,7 +44,7 @@ export default function LatestVideo() {
             bulletActiveClass: 'swiper-bullet-active !bg-red-600 !opacity-100'
           }}
           autoplay={{ 
-            delay: 1000,
+            delay: 3000,
             disableOnInteraction: false 
           }}
           breakpoints={{
