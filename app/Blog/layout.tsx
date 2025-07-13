@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
+import "../globals.css";
+
 
 export const metadata: Metadata = {
-  title: "Ale tube",
-  description: "Ale Tube ",
+  title: "Blog",
+  description: "Ale Tube Blog ",
 };
 
 export default function RootLayout({
@@ -15,12 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Nav/>
       <body
       >
         {children}
       </body>
-      <Footer/>
     </html>
   );
 }
