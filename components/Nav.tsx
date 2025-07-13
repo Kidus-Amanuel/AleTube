@@ -93,7 +93,7 @@ export default function Nav() {
               <Link href="/" className="header__logo-link flex items-center ">
                 <Image
                   src="https://yt3.googleusercontent.com/I2mcCfvHKcgzdc55WhcIwRUZm2Y_ZkjxzngUFJNCg3WO2ESM7z7vZZGOlAdhJg2uqnuu7WPHWw=s120-c-k-c0x00ffffff-no-rj"
-                  className="header__logo-image h-16 rounded-full"
+                  className="header__logo-image h-16 w-16 rounded-full"
                   alt="Ale Tube Logo"
                 />
               </Link>
